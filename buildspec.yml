@@ -11,4 +11,4 @@ phases:
        - hugo
   post_build:
     commands:
-       - aws s3 sync public s3://ec-rdb/public --region cn-north-1
+       - aws s3 sync public s3://lab798-assets-bkt/public
