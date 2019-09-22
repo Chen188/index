@@ -5,12 +5,10 @@ phases:
        - wget -q https://github.com/gohugoio/hugo/releases/download/v0.57.2/hugo_0.57.2_Linux-64bit.deb
        - dpkg -i hugo_0.57.2_Linux-64bit.deb
        - hugo version
-       - #git clone https://github.com/Chen188/index.git
   build:
     commands:
-       - echo $CODEBUILD_SRC_DIR
        - cd $CODEBUILD_SRC_DIR
        - hugo
   post_build:
     commands:
-       - aws s3 sync public s3://ec-rdb/public
+       - aws s3 sync public s3://ec-rdb/public --region cn-north-1
