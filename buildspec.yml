@@ -2,13 +2,14 @@ version: 0.2
 phases:
   install:
     commands:
-       - wget https://github.com/gohugoio/hugo/releases/download/v0.57.2/hugo_0.57.2_Linux-64bit.deb
+       - wget -q https://github.com/gohugoio/hugo/releases/download/v0.57.2/hugo_0.57.2_Linux-64bit.deb
        - dpkg -i hugo_0.57.2_Linux-64bit.deb
        - hugo version
-       - git clone https://github.com/Chen188/index.git
+       - #git clone https://github.com/Chen188/index.git
   build:
     commands:
-       - cd index
+       - echo $CODEBUILD_SRC_DIR
+       - cd $CODEBUILD_SRC_DIR
        - hugo
   post_build:
     commands:
