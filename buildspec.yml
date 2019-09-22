@@ -12,3 +12,4 @@ phases:
   post_build:
     commands:
        - aws s3 sync public s3://lab798-assets-bkt/public
+       - #aws cloudfront create-invalidation --distribution-id EPQGD99IJMFGD --paths *
