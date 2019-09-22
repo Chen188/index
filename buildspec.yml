@@ -8,8 +8,8 @@ phases:
        - git clone https://github.com/Chen188/index.git
   build:
     commands:
-       - cd test_hugo_git
+       - cd index
        - hugo
   post_build:
     commands:
-       - aws s3 sync public s3://ec-rdb
+       - aws s3 sync public s3://ec-rdb/public
